@@ -1,0 +1,107 @@
+name: Vulnerability-introducing/fixing commits in Java for vulnerability assessment
+description: A dataset with details about vulnerability-causing and fixing commits.
+contributors:
+  name: Triet Huynh Minh Le, David Hin, Roland Croft, M. Ali Babar
+data:
+  name: java_vccs.csv
+  description: Dataset that stores features of vulnerability causing commits.
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/java_vccs.csv
+  format: CSV
+  size: 164 KB
+  fields:
+    name: Commit 
+    description: The commit ID for the VCC
+    name: ID
+    description: CVE ID for the vulnerability
+    name: CWE
+    description: CWE ID for the vulnerability
+    name: CVSS2
+    description: CVSS2 string for the vulnerability
+    name: Local
+    description: The repository to which the commit was made
+    name: Date
+    description: The date on which the commit was made.
+  name: code_file.parquet
+  description: A dataset containing commits, the code file before the commit and the code file after the commit.
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/code_file.parquet
+  format: parquet
+  size: 84 MB
+  fields:
+    name: commit
+    description: The commit ID for the commit 
+    name: prev_file
+    description: The code file before the commit
+    name: cur_file 
+    description: The code file after the commit
+  name: code_hc.parquet
+  description: A dataset containing commits, the code hunk of the changes before and after the commit, and the code context (lines surrounding the change hunk) before and after the commit.
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/code_hc.parquet
+  format: parquet
+  size: 86.5 MB
+  fields:
+    name: commit
+    description: The commit ID for the commit.
+    name: prev_data
+    description: The code hunk before the commit
+    name: cur_data
+    description: The code hunk after the commit
+    name: prev_context
+    description: The code context before the commit
+    name: cur_context
+    description: The code context after the commit
+  name: code_hunk.parquet
+  description: A dataset containing commits, the code hunk before and after the commit.
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/code_hunk.parquet
+  format: parquet
+  size: 40.8 MB
+  fields:
+    name: commit
+    description: The commit ID for the commit
+    name: prev_data
+    description: The code hunk before the commit
+    name: cur_data
+    description: The code hunk after the commit
+  name: ast_file.parquet
+  description: The AST (abstract syntax tree) representation of the code files before and after the commit.
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/ast_file.parquet
+  format: parquet
+  size: 78 MB
+  fields:
+    name: commit
+    description: The commit ID for the commit
+    name: prev_file
+    description: The AST for the code file before the commit 
+    name: cur_file 
+    description: The AST for the code file after the commit 
+  name: ast_hc.parquet
+  description: The AST representation of the code hunks and context before and after the commit
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/ast_hc.parquet
+  format: parquet
+  size: 117.9 MB
+  fields:
+    name: commit 
+    description: The commit ID for the commit 
+    name: prev_hunk 
+    description: The AST for the code hunk before the commit
+    name: prev_context
+    description: The AST for the code context before the commit 
+    name: cur_hunk
+    description: The AST for the code hunk after the commit 
+    name: cur_context 
+    description: The AST for the code context after the commit
+    name: prev_data 
+    description: The code hunk with context before the commit 
+    name: cur_data 
+    description: The code hunk with context after the commit
+  name: manual.parquet
+  description: A dataset of statistics (stars, commits, keywords in code, etc) of a commit and the corresponding repository.
+  path: https://github.com/CSCRC-SCREED/UoA_java-vuln-commits/datasets/manual.parquet
+  format: parquet
+  size: 135 KB
+  fields: A total of 69 fields
+license:
+  name: GNU v3
+  link: Link to the license page
+references:
+  name: DeepCVA Automated Commit-level Vulnerability Assessment with Deep Multi-task Learning
+  link: https://arxiv.org/abs/2108.08041
